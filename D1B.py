@@ -1,6 +1,7 @@
 '''
-Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
+Find the top three Elves carrying the most Calories. How many Calories are those Elves carrying in total?
 '''
+#My_File = 'sample.txt'
 My_File = 'D1A-input.txt'
 
 inputData = []
@@ -25,8 +26,20 @@ def main():
         else:
             elfcount = elfcount + 1
             elf[elfcount] = 0
-    elf_max = max(elf,key=elf.get)
-    print("elf:",elf_max,"\t value:",elf[elf_max])
+    elflist = []
+    totalcal = 0
+    topcount = 0
+    for k in sorted(elf,key=elf.get,reverse=True):
+        topcount = topcount + 1
+        if topcount > 3:
+            break
+        else:
+            totalcal = totalcal + elf[k]
+        #print(k,elf[k])
+        #elflist.append[[k,elf[k]]]
+    print(totalcal)
+    #elf_max = max(elf,key=elf.get)
+    #print("elf:",elf_max,"\t value:",elf[elf_max])
     #print(elf)
 
 
